@@ -1,0 +1,14 @@
+{
+  "name": "morning-brief",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "与同事一起读，每日精选技术早报",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env.local scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "sync": "node --env-file-if-exists=.env.local scripts/sync.mjs",
+    "test": "node --test"
+  }
+}

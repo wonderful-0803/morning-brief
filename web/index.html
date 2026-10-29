@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8fa">
+  <meta name="description" content="我的早报 · 每天一份精选技术阅读，与同事分享值得关注的好内容。内容由 BestBlogs 提供。">
+  <title>我的早报 · 每天，读点好内容</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <script>try{if(localStorage.getItem('brief-theme')==='dark')document.documentElement.dataset.theme='dark'}catch{}</script>
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">跳转到早报内容</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="我的早报首页"><img src="./favicon.svg" width="32" height="32" alt=""><span>Morning<span class="brand-gold">Brief</span></span></a>
+    <span class="top-description">每天，读点好内容。</span>
+    <div class="top-actions">
+      <label class="search"><span data-icon="search"></span><input id="search" placeholder="搜索本期早报…" aria-label="搜索本期早报"><kbd>⌘ K</kbd></label>
+      <button class="icon-button" id="theme-toggle" aria-label="切换深浅主题" title="切换主题"><span data-icon="moon"></span></button>
+      <span class="top-divider"></span><span class="team-avatar" title="团队共享阅读">早</span>
+    </div>
+  </header>
+  <aside class="sidebar" aria-label="早报导航">
+    <div class="sidebar-label">我的空间</div>
+    <a class="nav-current" href="./" aria-current="page"><span data-icon="newspaper"></span><span>我的早报</span><span class="nav-dot"></span></a>
+    <div class="sidebar-note">一份早报<br>和同事一起，保持好奇。</div>
+    <div class="sidebar-bottom"><span class="live-dot"></span>每天更新，持续发现<div>内容由 <a href="https://www.bestblogs.dev" target="_blank" rel="noopener noreferrer">BestBlogs ↗</a> 提供</div></div>
+  </aside>
+  <main id="main">
+    <div class="page-heading"><div><div class="eyebrow">YOUR DAILY READING</div><h1>我的早报 <span class="sun-icon" data-icon="sun"></span></h1><p>从你的每日订阅里，发现值得读的好内容。</p></div><button class="button share-button" id="share"><span data-icon="share"></span>分享本期</button></div>
+    <div class="date-toolbar"><div class="date-control"><button class="icon-button" id="previous" aria-label="上一期"><span data-icon="chevron-left"></span></button><label><span data-icon="calendar"></span><select id="date-select" aria-label="选择早报日期"><option>加载中…</option></select></label><button class="icon-button" id="next" aria-label="下一期"><span data-icon="chevron-right"></span></button><span class="today-badge" id="date-badge">最新一期</span></div><span class="sync-status" id="sync-status"><span class="live-dot"></span>正在同步早报</span></div>
+    <div id="notice" class="notice" hidden role="status"></div>
+    <section class="daily-intro" aria-labelledby="intro-title"><div class="intro-kicker"><span data-icon="sparkles"></span><span id="intro-title">今日导读</span></div><p id="intro-text" class="loading-copy">正在为你打开今天的阅读清单…</p><div id="keywords" class="keywords"></div></section>
+    <div class="content-layout"><section class="articles-section" aria-labelledby="articles-heading">
+      <div class="list-toolbar"><div class="view-tabs" role="tablist" aria-label="早报内容"><button id="all-tab" role="tab" aria-selected="true" class="view-tab active">今日精选 <span id="total-count">—</span></button><button id="deep-tab" role="tab" aria-selected="false" class="view-tab">深度阅读 <span id="deep-count">—</span></button></div><select id="type-select" aria-label="筛选内容类型"><option value="ALL">全部类型</option><option value="ARTICLE">文章</option><option value="VIDEO">视频</option><option value="PODCAST">播客</option><option value="TWITTER">推文</option></select></div>
+      <h2 id="articles-heading" class="sr-only">今日精选内容</h2><div id="articles" aria-live="polite" aria-busy="true"><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div></div>
+      <button class="load-more" id="load-more" hidden>查看更多内容 <span data-icon="chevron-down"></span></button><div class="list-end" id="list-end" hidden>今天的好内容，都在这里了 <span>✦</span></div>
+    </section><aside class="reading-rail" aria-label="阅读概览">
+      <section class="rail-card overview"><h2><span data-icon="chart"></span>今日速览</h2><div class="overview-numbers"><div><strong id="stat-total">—</strong><span>精选内容</span></div><div><strong id="stat-sources">—</strong><span>优质来源</span></div></div><div id="type-stats" class="type-stats"></div></section>
+      <section class="rail-card"><h2><span data-icon="coffee"></span>慢慢读，才有收获</h2><p class="rail-copy">不必读完所有内容。<br>挑一篇感兴趣的，让好想法发生。</p><div class="progress-label"><span>本期阅读进度</span><span id="progress-label">0 / 0</span></div><div class="progress-track"><div id="progress-bar"></div></div><div id="saved-count" class="saved-count">点击书签，留待稍后阅读</div></section>
+      <section class="rail-card archive"><h2><span data-icon="history"></span>往期早报</h2><div id="archive-list" class="archive-list"><span class="muted">正在加载…</span></div></section>
+      <div class="rail-attribution"><span data-icon="rss"></span> 好内容，值得被分享。<br><span>精选与摘要来自 BestBlogs</span></div>
+    </aside></div>
+    <footer><span>我的早报 <span class="footer-star">✦</span> 与同事分享每天的发现</span><a href="https://www.bestblogs.dev" target="_blank" rel="noopener noreferrer">Powered by BestBlogs <span data-icon="external"></span></a></footer>
+  </main>
+  <dialog id="detail-dialog"><div class="dialog-toolbar"><span>阅读摘要</span><button class="icon-button" id="close-dialog" aria-label="关闭摘要"><span data-icon="close"></span></button></div><div id="detail-content"></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
